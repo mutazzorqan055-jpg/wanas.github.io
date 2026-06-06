@@ -1,0 +1,193 @@
+/* إعدادات عامة */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0d1b2a, #1a2a40, #6a5acd);
+  color: #fff;
+  min-height: 100vh;
+  direction: rtl; /* من اليمين لليسار */
+  text-align: right; /* النصوص تبدأ من اليمين */
+}
+
+/* الهيدر */
+header {
+  background: #000;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 15px #6a5acd;
+}
+
+header h1 {
+  color: #6a5acd;
+  margin: 0;
+}
+
+/* روابط التنقل كأزرار */
+nav {
+  margin-top: 15px;
+}
+
+nav a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  color: #fff;
+  border: 2px solid #6a5acd;
+  border-radius: 8px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #000, #1a2a40);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #000;
+  animation: pulse 2s infinite;
+}
+
+nav a:hover {
+  background: linear-gradient(135deg, #1a2a40, #6a5acd);
+  color: #00aaff;
+  box-shadow: 0 0 20px #6a5acd, 0 0 40px #00aaff;
+  transform: scale(1.1);
+}
+
+/* الأقسام */
+section {
+  text-align: center;
+  padding: 50px;
+}
+
+section img {
+  width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #6a5acd;
+  margin-top: 20px;
+}
+
+/* الأزرار */
+button {
+  background: linear-gradient(135deg, #000, #1a2a40);
+  color: #fff;
+  border: 2px solid #6a5acd;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #000;
+  margin-top: 15px;
+  animation: pulse 2s infinite;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #1a2a40, #6a5acd);
+  color: #00aaff;
+  box-shadow: 0 0 20px #6a5acd, 0 0 40px #00aaff;
+  transform: scale(1.05);
+}
+
+/* تأثير وميض متكرر */
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #6a5acd; }
+  50% { box-shadow: 0 0 20px #00aaff; }
+  100% { box-shadow: 0 0 10px #6a5acd; }
+}
+
+/* الفورم */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* الحقول تبدأ من اليمين */
+  gap: 15px;
+}
+
+input, textarea {
+  width: 300px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #6a5acd;
+  background: #000;
+  color: #fff;
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+/* روابط الحسابات كأزرار */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.social-links a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #6a5acd;
+  border-radius: 8px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #000, #1a2a40);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #000;
+  animation: pulse 2s infinite;
+}
+
+.social-links a:hover {
+  background: linear-gradient(135deg, #1a2a40, #6a5acd);
+  color: #00aaff;
+  box-shadow: 0 0 20px #6a5acd, 0 0 40px #00aaff;
+  transform: scale(1.1);
+}
+
+/* بوكسات القوانين */
+.rules {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* البوكسات تبدأ من اليمين */
+  gap: 20px;
+}
+
+.rule-box {
+  background: linear-gradient(135deg, #000, #1a2a40);
+  border: 2px solid #6a5acd;
+  border-radius: 12px;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  color: #fff;
+  box-shadow: 0 0 15px #6a5acd;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rule-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #00aaff, 0 0 40px #6a5acd;
+}
+
+.rule-number {
+  background: #6a5acd;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px #00aaff;
+}
+
+/* الفوتر */
+footer {
+  background: #000;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  box-shadow: 0 -5px 15px #6a5acd;
+}
