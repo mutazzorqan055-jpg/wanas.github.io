@@ -2,30 +2,97 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>الشكاوي</title>
+  <title>سيرفر ونس | الشكاوي</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
-<body>
-  <header>
-    <h1>صفحة الشكاوي</h1>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="rules.html">شروط الدخول</a>
-      <a href="links.html">روابط الحسابات</a>
-    </nav>
-  </header>
+<body class="night-mode">
 
-  <section class="form-section">
-    <h2>أرسل شكواك هنا 🌌</h2>
-    <form>
-      <label>الاسم:</label>
-      <input type="text" required>
-      <label>الشكوى:</label>
-      <textarea required></textarea>
-      <button type="submit">إرسال</button>
-    </form>
-    <img src="complaint.jpg" alt="صورة تعبيرية">
-  </section>
+<header>
+  <h1><i class="fa-solid fa-gamepad"></i> سيرفر ونس</h1>
+  <nav>
+    <a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a>
+    <a href="news.html"><i class="fa-solid fa-newspaper"></i> الأخبار</a>
+    <a href="rules.html"><i class="fa-solid fa-shield-halved"></i> القوانين</a>
+    <a href="apply.html"><i class="fa-solid fa-file-signature"></i> التقديم</a>
+    <a href="contact.html"><i class="fa-solid fa-headset"></i> التواصل</a>
+    <a href="complaints.html" class="active"><i class="fa-solid fa-envelope-open-text"></i> الشكاوي</a>
+    <a href="links.html"><i class="fa-solid fa-link"></i> الروابط</a>
+  </nav>
+  <button id="modeToggle" class="btn"><i class="fa-solid fa-moon"></i> تبديل الوضع</button>
+</header>
+
+<!-- قسم الشكاوي -->
+<section class="glass-card">
+  <h2><i class="fa-solid fa-triangle-exclamation"></i> صفحة الشكاوي</h2>
+  <p>يمكنك إرسال شكواك أو ملاحظتك عبر النموذج الرسمي التالي:</p>
+
+  <div class="complaints-link">
+    <a href="https://forms.gle/DbbX9e5qrX4xj8S47" target="_blank" class="btn">
+      <i class="fa-solid fa-file-lines"></i> فتح نموذج الشكاوي
+    </a>
+  </div>
+</section>
+
+<!-- حسابات المسؤولين على الديسكورد -->
+<section class="discord-accounts glass-card">
+  <h2><i class="fa-brands fa-discord"></i> حسابات المسؤولين على الديسكورد</h2>
+  <ul class="discord-list">
+    <li>
+      <span class="discord-user"><i class="fa-solid fa-user"></i> abufares17     حساب الديسكورد</span>
+      <button class="copy-btn"><i class="fa-solid fa-copy"></i> نسخ</button>
+    </li>
+    <li>
+      <span class="discord-user"><i class="fa-solid fa-user"></i> x2t_3     حساب الديسكورد</span>
+      <button class="copy-btn"><i class="fa-solid fa-copy"></i> نسخ</button>
+    </li>
+  </ul>
+</section>
+
+<!-- Toast للإشعارات -->
+<div id="toast" class="toast"></div>
+
+<footer>
+  <p>© 2026 سيرفر ونس — جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+  // تبديل الوضع الليلي والنهاري
+  const toggleBtn = document.getElementById("modeToggle");
+  toggleBtn.addEventListener("click", () => {
+    const body = document.body;
+    if (body.classList.contains("night-mode")) {
+      body.classList.remove("night-mode");
+      body.classList.add("day-mode");
+      toggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i> الوضع النهاري';
+    } else {
+      body.classList.remove("day-mode");
+      body.classList.add("night-mode");
+      toggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i> الوضع الليلي';
+    }
+  });
+
+  // دالة إظهار Toast
+  function showToast(message, type = "success") {
+    const toast = document.getElementById("toast");
+    if (!toast) return;
+    toast.textContent = message;
+    toast.className = "toast " + type + " show";
+    setTimeout(() => { toast.classList.remove("show"); }, 3000);
+  }
+
+  // أزرار نسخ حسابات الديسكورد
+  document.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const user = btn.parentElement.querySelector(".discord-user").textContent.trim();
+      navigator.clipboard.writeText(user).then(() => {
+        showToast("📋 تم نسخ الحساب: " + user);
+      }).catch(() => {
+        showToast("❌ حدث خطأ أثناء النسخ", "error");
+      });
+    });
+  });
+</script>
+
 </body>
 </html>
